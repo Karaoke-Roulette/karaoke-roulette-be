@@ -7,6 +7,7 @@ const app = require('../lib/app');
 const client = require('../lib/client');
 const { mungedVideos } = require('../utils.js');
 
+// happy to see thorough testing here!
 describe('app routes', () => {
   describe('routes', () => {
     let token;
@@ -32,7 +33,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('gets favorites', async () => {
+    test('gets favorites', async() => {
       const mungedData = mungedVideos(data);
       expect(mungedData).toEqual(
         [
@@ -53,7 +54,7 @@ describe('app routes', () => {
 
 
 
-    test('post to favorites', async () => {
+    test('post to favorites', async() => {
       const expectation = {
         'thumbnails': 'https://i.ytimg.com/vi/E0id9kAMS4k/default.jpg',
         'title': 'Dan + Shay - Tequila (Karaoke Version)',
@@ -74,7 +75,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test('deletes a resource, returns respond from db', async () => {
+    test('deletes a resource, returns respond from db', async() => {
       const expectation = {
         'thumbnails': 'https://i.ytimg.com/vi/E0id9kAMS4k/default.jpg',
         'title': 'Dan + Shay - Tequila (Karaoke Version)',
@@ -91,7 +92,7 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
-    test('returns all names', async () => {
+    test('returns all names', async() => {
 
       const expectation = [
         {
@@ -220,7 +221,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test('returns a single name', async () => {
+    test('returns a single name', async() => {
       const expectation = [{
         id: 1,
         name: 'Bard',

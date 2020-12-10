@@ -20,6 +20,7 @@ function mungeRandom(random){
       
   });
 
+  // nicew randomizer!
   return videos[Math.floor(Math.random() * (videos.length - 1))];
     
 }
